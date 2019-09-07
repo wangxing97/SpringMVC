@@ -1,0 +1,34 @@
+1)、导包
+	1)、SpringMVC是Spring的web模块；所有模块的运行都是依赖核心模块(IOC模块)
+		1)、核心容器模块
+			commons-logging-1.1.1.jar
+			spring-aop-4.1.6.RELEASE.jar
+			spring-beans-4.1.6.RELEASE.jar
+			spring-context-4.1.6.RELEASE.jar
+			spring-core-4.1.6.RELEASE.jar
+			spring-expression-4.1.6.RELEASE.jar
+		2)、web模块
+			spring-web-4.1.6.RELEASE.jar
+			spring-webmvc-4.1.6.RELEASE.jar
+2)、写配置
+	具体看xml
+3)、测试
+	1、运行流程
+		1)、客户端点击链接会发送http://localhost:8080/springmvc/hello请求
+		2)、来到tomcat服务器
+		3)、SpringMVC的前端控制器收到所有请求
+		4)、来看请求地址与RequestMapping标注的哪个匹配，来找到到底使用那个类的哪个方法来处理
+		5)、前端控制器找到了目标处理器类和 目标方法，直接利用返回执行目标方法
+		6)、方法执行完成以后会有一个返回值;SpringMVC认为这个返回值就是要去的页面地址
+		7)、拿到方法返回值以后，用视图解析器进行拼串得到完整的页面地址
+		8)、拿到页面地址，前端控制器帮我们转发到页面
+		
+	2、@RequestMapping
+		就是告诉SpringMVC这个方法用来处理什么请求
+		这个/是可以省略的，省略了/也是从当前项目下开始
+		推荐加上比较好
+	
+	3、如果不指定配置文件位置？
+		如果不指定也会去默认找一个文件，
+		就在web应用的/WEB-INF、下创建一个名叫  前端控制器名-servlet.xml
+		
